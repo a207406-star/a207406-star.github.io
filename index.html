@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A207406_GUOZIHAO_Project2_ePortfolio</title>
+    <style>
+        :root {
+            --primary-color: #0c9463;
+            --primary-dark: #0b7a51;
+            --bg-light: #f4f9f4;
+            --text-dark: #2d3748;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            background-color: #f7fafc;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #e6f4ea 100%);
+            padding: 8rem 2rem 5rem;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .hero-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .profile-info {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            margin-top: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            text-align: left;
+        }
+
+        .sdg-badge {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-top: 1.5rem;
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+            color: var(--primary-dark);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+
+        .card-content p {
+            font-size: 0.95rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .reflection-box {
+            background-color: var(--bg-light);
+            border-left: 3px solid var(--primary-color);
+            padding: 0.75rem 1rem;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #2c5282;
+            margin-top: auto;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .btn-github {
+            display: inline-block;
+            background-color: #24292e;
+            color: white;
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 500;
+            margin-top: 1rem;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .btn-github:hover {
+            background-color: #444d56;
+        }
+
+        .journey-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-badge {
+            background-color: #edf2f7;
+            color: #4a5568;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #2d3748;
+            color: #a0aec0;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">GUOZIHAO Portfolio</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#labs">Labs</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#reflection">Reflection</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resources">Resources</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="hero-container">
+            <h1>Mobile Programming e-Portfolio</h1>
+            <p>Showcasing my academic development and technical growth throughout the semester.</p>
+            
+            <div class="profile-info">
+                <div><strong>Name:</strong> GUOZIHAO</div>
+                <div><strong>Matric No:</strong> A207406</div>
+                <div><strong>Programme:</strong> Software Engineering</div>
+                <div><strong>Instructor:</strong> Dr. Cikgu Izwan</div>
+            </div>
+
+            <div class="sdg-badge">🌐 SDG 3: Good Health and Well-being</div>
+            <p style="margin-top: 1rem; color: #4a5568; font-style: italic;">
+                "Leveraging modern mobile architecture to deliver reliable tracking, helping people adopt healthier lifestyles effortlessly."
+            </p>
+        </div>
+    </header>
+
+    <section id="labs">
+        <h2>Lab Submissions</h2>
+        <div class="grid-container">
+            
+            <!-- Lab 1 -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/9KUt5r35toI" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 1: UI Fundamentals</h3>
+                    <p>Building the layout structure using Jetpack Compose components such as Modifier, Rows, Columns, and Box layouts.</p>
+                    <div class="reflection-box">
+                        <strong>Reflection:</strong> Learnt how to structure mobile UI components declaratively using Jetpack Compose, moving away from XML. It provided foundational layout knowledge for responsive design.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 2 -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/wOox7fLyIVA" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 2: User Interaction</h3>
+                    <p>Implementing state handling, interactive event clicks, and dynamic state changes using remember and mutableStateOf.</p>
+                    <div class="reflection-box">
+                        <strong>Reflection:</strong> Discovered the core concept of state manipulation in Jetpack Compose. Handling button clicks and ensuring swift text updates properly built the dynamic interaction flow.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 3 -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/mMVmpGBxE48" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 3: Material Design 3</h3>
+                    <p>Adopting advanced Material Design themes, complex Card surfaces, top action bar controls, and tailored color schemes.</p>
+                    <div class="reflection-box">
+                        <strong>Reflection:</strong> Mastered UI aesthetics using Material Design 3 attributes. Styling cards and adjusting typography drastically modernized my application's look and feel.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 4 -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/BT9rXabKiAg" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 4: App Navigation Flow</h3>
+                    <p>Constructing a complex multi-screen workflow using NavHost, NavController, and routing setups with back-stack arguments.</p>
+                    <div class="reflection-box">
+                        <strong>Reflection:</strong> Built structured navigation flows across multiple application fragments. Passing string parameters safely between screens made the navigation logical and reliable.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab 5 -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/XyX-C3RgL1c" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Lab 5: Local Database Room</h3>
+                    <p>Integrating Room local cache mechanism using Entity data schemas, Data Access Objects (DAOs), and asynchronous Coroutines.</p>
+                    <div class="reflection-box">
+                        <strong>Reflection:</strong> Implemented local persistence storage on the mobile system. Learning Flow database streaming allowed the UI to auto-update whenever internal records changed.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Project Submissions</h2>
+        <div class="grid-container">
+
+            <!-- Project 1 -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/9NbCuEuG3BQ" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Project 1: Health Tracker (SDG 3)</h3>
+                    <p><strong>Problem Statement:</strong> Modern individuals struggle to monitor personal health habits accurately due to fragmented local tracking methods and scattered data management workflows.</p>
+                    <div class="reflection-box">
+                        <strong>Lessons Learned:</strong> Unified multiple navigation screen nodes into a clean ViewModel framework. Leveraged proper architectural patterns to preserve operational data states across UI configuration changes.
+                    </div>
+                    <a href="https://github.com/a207406-star/a207406_GUOZIHAO_cikguizwan_project1.git" target="_blank" class="btn-github">View on GitHub</a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/wOox7fLyIVA" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="card-content">
+                    <h3>Project 2: Cloud Sync & Sensor Health App</h3>
+                    <p><strong>Problem Statement:</strong> Health tracking apps remain restricted if data is only saved locally without real-time physical monitoring or persistent automated cloud backups.</p>
+                    <div class="reflection-box">
+                        <strong>Lessons Learned:</strong> Successfully implemented the 4 technical pillars: Room DB, Retrofit public Web APIs, on-device Accelerometer sensor step integration, and direct real-time Firebase Cloud backups.
+                    </div>
+                    <a href="https://github.com/a207406-star/a207406_guozihao_cikguizwan_project2.git" target="_blank" class="btn-github">View on GitHub</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="reflection">
+        <h2>Reflection & Learning Journey</h2>
+        <div class="journey-card">
+            <p>
+                My learning curve from Lab 1 to Project 2 has been incredibly transformative. Starting with basic, static Jetpack Compose views, I advanced to complex state handling, full Room structural caching, and asynchronous network operations. The most challenging aspect was managing the lifecycle of on-device sensor hardware while simultaneously updating Firebase cloud entities. Overcoming these limitations taught me the practical side of Android system architecture, and I now feel highly confident building data-driven, reactive mobile applications that address real-world SDG 3 criteria.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills & Tech Stack</h2>
+        <div class="skills-container">
+            <span class="skill-badge">Kotlin</span>
+            <span class="skill-badge">Jetpack Compose</span>
+            <span class="skill-badge">Android Architecture Components</span>
+            <span class="skill-badge">ViewModel & LiveData</span>
+            <span class="skill-badge">Room Database</span>
+            <span class="skill-badge">Retrofit API</span>
+            <span class="skill-badge">Firebase Realtime Database</span>
+            <span class="skill-badge">Hardware Sensors (Accelerometer)</span>
+            <span class="skill-badge">Git & GitHub Version Control</span>
+        </div>
+    </section>
+
+    <section id="resources">
+        <h2>Resources & References</h2>
+        <div class="journey-card" style="line-height: 1.8;">
+            <ul>
+                <li><strong>Official Android Documentation:</strong> Jetpack Compose UI Guides, Room Persistence Libraries, and SensorEventListener Lifecycles.</li>
+                <li><strong>Network Libraries:</strong> Square Retrofit & Gson converter packages for dynamic network JSON mapping.</li>
+                <li><strong>Cloud Infrastructure:</strong> Google Firebase Authentication & Realtime Database SDK components.</li>
+                <li><strong>AI Assistance Acknowledgement:</strong> Generative AI (Gemini) was utilized to optimize layout state code blocks and fix complex Firebase organizational gradle issues.</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <p>GUOZIHAO | Matric No: A207406 | © 2026 Mobile Application Programming Portfolio</p>
+    </footer>
+
+</body>
+</html>
